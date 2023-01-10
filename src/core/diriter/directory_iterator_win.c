@@ -43,9 +43,7 @@ DIRITER_EXPORT void IterateOverDirectoryFiles(const char* a_sourceDirectory, Typ
 {
 	HANDLE				hFile;                       // Handle to directory
 	WIN32_FIND_DATAA	FileInformation;             // File information
-	int					nReturnFromCallback;
 	char				vcStrPattern[DIRITER_MAX_PATH];
-	DirIterFileData		aClbkData;
 
 	if (!(GetFileAttributesA(a_sourceDirectory) & FILE_ATTRIBUTE_DIRECTORY)) { return; }
 
@@ -53,6 +51,9 @@ DIRITER_EXPORT void IterateOverDirectoryFiles(const char* a_sourceDirectory, Typ
 
 	hFile = FindFirstFileA(vcStrPattern, &FileInformation);
 	if (hFile != INVALID_HANDLE_VALUE) {
+		int					nReturnFromCallback;
+		DirIterFileData		aClbkData;
+		
 		do {
 			if (FileInformation.cFileName[0] == '.') {
 				if ((FileInformation.cFileName[1] == 0) || ((FileInformation.cFileName[1] == '.') && (FileInformation.cFileName[2] == 0))) { continue; }
