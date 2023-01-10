@@ -1,8 +1,10 @@
 //
-// file:			main_dir_iter_test01.cpp  
+// file:			directory_iterator_win.c  
+// path:			src/core/diriter/directory_iterator_win.c  
 // created on:		2023 Jan 10
 // Created by:		Davit Kalantaryan (davit.kalantaryan@desy.de)
 //
+
 
 
 #include <directory_iterator/export_symbols.h>
