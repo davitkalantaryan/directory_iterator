@@ -23,7 +23,7 @@ CINTERNAL_BEGIN_C
 
 static void SysDataToClbkData(DirIterFileData* a_pClbk, const struct dirent* a_pSysData)
 {
-	a_pClbk->isDir = (a_pSysData->d_type == DT_DIR)? CINTERNAL_STATIC_CAST(uint64_t,1): CINTERNAL_STATIC_CAST(uint64_t, 0);
+	a_pClbk->isDir = (a_pSysData->d_type & DT_DIR)? CINTERNAL_STATIC_CAST(uint64_t,1): CINTERNAL_STATIC_CAST(uint64_t, 0);
 	a_pClbk->fileAttributes = CINTERNAL_STATIC_CAST(uint64_t, a_pSysData->d_type);
 	a_pClbk->creationTimeIn100Ms = 0;
 	a_pClbk->lastAccessTimeIn100Ms = 0;
@@ -45,15 +45,25 @@ DIRITER_EXPORT void IterateOverDirectoryFiles(const char* a_sourceDirectory, Typ
 		DirIterFileData		aClbkData;
 		nReadDirResult = readdir_r(pDir,&inpBuffer,&pResult);
 		assert(nReadDirResult==0);
+		CINTERNAL_STATIC_CAST(void,nReadDirResult);
 		while(pResult){
 			if (pResult->d_name[0] == '.') {
-				if ((pResult->d_name[1] == 0) || ((pResult->d_name[1] == '.') && (pResult->d_name[2] == 0))) { continue; }
+				if ((pResult->d_name[1] == 0) || ((pResult->d_name[1] == '.') && (pResult->d_name[2] == 0))) {
+					nReadDirResult = readdir_r(pDir,&inpBuffer,&pResult);
+					assert(nReadDirResult==0);
+					CINTERNAL_STATIC_CAST(void,nReadDirResult);
+					continue;
+				}
 			}
 			
 			SysDataToClbkData(&aClbkData, pResult);
 			
 			nReturnFromCallback = (*a_callback)(a_sourceDirectory,a_ud, &aClbkData);
 			if (nReturnFromCallback) { break; }
+			
+			nReadDirResult = readdir_r(pDir,&inpBuffer,&pResult);
+			assert(nReadDirResult==0);
+			CINTERNAL_STATIC_CAST(void,nReadDirResult);
 		}
 		
 		closedir(pDir);

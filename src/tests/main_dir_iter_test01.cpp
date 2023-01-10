@@ -50,8 +50,9 @@ static int DirIterFuncStatic(const char* a_sourceDirectory,void* a_pUd, const Di
 	if (a_pData->isDir) {
 		char  vcStrFilePath[4096];
 		++(pDt->nDeepness);
-		snprintf_t(vcStrFilePath, 4095, "%s\\%s", a_sourceDirectory, a_pData->pFileName);
+		snprintf_t(vcStrFilePath, 4095, "%s/%s", a_sourceDirectory, a_pData->pFileName);
 		IterateOverDirectoryFiles(vcStrFilePath, &DirIterFuncStatic, pDt);
+		--(pDt->nDeepness);
 	}
 
 	return 0;
