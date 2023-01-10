@@ -35,7 +35,7 @@ static int DirIterFuncStatic(const char* a_sourceDirectory,void* a_pUd, const Di
 	SDirIterData* pDt = (SDirIterData*)a_pUd;
 	int i(0);
 	for (; i < pDt->nDeepness; ++i) {
-		printf("\t");
+		printf(" ");
 	}
 
 	printf("%s\n", a_pData->pFileName);
