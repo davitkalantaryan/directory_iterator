@@ -24,22 +24,13 @@ CINTERNAL_BEGIN_C
 
 static void WinDataToClbkData(DirIterFileData* a_pClbk, const WIN32_FIND_DATAA* a_pWinData)
 {
-	a_pClbk->isDir = (a_pWinData->dwFileAttributes& FILE_ATTRIBUTE_DIRECTORY)? CINTERNAL_STATIC_CAST(uint64_t,1): CINTERNAL_STATIC_CAST(uint64_t, 0);
-	a_pClbk->fileAttributes = CINTERNAL_STATIC_CAST(uint64_t, a_pWinData->dwFileAttributes);
-	a_pClbk->creationTimeIn100Ms = (CINTERNAL_STATIC_CAST(uint64_t, a_pWinData->ftCreationTime.dwHighDateTime)<<32)& 
-		CINTERNAL_STATIC_CAST(uint64_t, a_pWinData->ftCreationTime.dwLowDateTime);
-	a_pClbk->lastAccessTimeIn100Ms = (CINTERNAL_STATIC_CAST(uint64_t, a_pWinData->ftLastAccessTime.dwHighDateTime) << 32) &
-		CINTERNAL_STATIC_CAST(uint64_t, a_pWinData->ftLastAccessTime.dwLowDateTime);
-	a_pClbk->lastWriteTimeIn100Ms = (CINTERNAL_STATIC_CAST(uint64_t, a_pWinData->ftLastWriteTime.dwHighDateTime) << 32) &
-		CINTERNAL_STATIC_CAST(uint64_t, a_pWinData->ftLastWriteTime.dwLowDateTime);
-	a_pClbk->fileSize = (CINTERNAL_STATIC_CAST(uint64_t, a_pWinData->nFileSizeHigh) << 32) &
-		CINTERNAL_STATIC_CAST(uint64_t, a_pWinData->nFileSizeLow);
+	a_pClbk->isDir = (a_pWinData->dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) ? CINTERNAL_STATIC_CAST(uint64_t, 1) : CINTERNAL_STATIC_CAST(uint64_t, 0);
 	a_pClbk->pFileName = a_pWinData->cFileName;
-	a_pClbk->pAlternateFileName = a_pWinData->cAlternateFileName;
+	a_pClbk->pSystemData = CINTERNAL_STATIC_CAST(const void*, a_pWinData);
 }
 
 
-DIRITER_EXPORT void IterateOverDirectoryFiles(const char* a_sourceDirectory, TypeDirIterFunc a_callback, void* a_ud)
+DIRITER_EXPORT void IterateOverDirectoryFilesNoRecurse(const char* a_sourceDirectory, TypeDirIterFunc a_callback, void* a_ud)
 {
 	HANDLE				hFile;                       // Handle to directory
 	WIN32_FIND_DATAA	FileInformation;             // File information

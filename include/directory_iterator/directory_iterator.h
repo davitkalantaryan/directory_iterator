@@ -18,18 +18,13 @@ CINTERNAL_BEGIN_C
 typedef struct SDirIterFileData {
 	uint64_t	isDir : 1;
 	uint64_t	reserved01 : 63;
-	uint64_t	fileAttributes;			// see: https://learn.microsoft.com/en-us/windows/win32/fileio/file-attribute-constants
-	uint64_t	creationTimeIn100Ms;	// see: https://learn.microsoft.com/en-us/windows/win32/api/minwinbase/ns-minwinbase-filetime
-	uint64_t	lastAccessTimeIn100Ms;	// see: https://learn.microsoft.com/en-us/windows/win32/api/minwinbase/ns-minwinbase-filetime
-	uint64_t	lastWriteTimeIn100Ms;	// see: https://learn.microsoft.com/en-us/windows/win32/api/minwinbase/ns-minwinbase-filetime
-	uint64_t	fileSize;
 	const char* pFileName;
-	const char* pAlternateFileName;
+	const void* pSystemData;
 }DirIterFileData;
 
 typedef int		(*TypeDirIterFunc)(const char*,void*, const DirIterFileData*);
 
-DIRITER_EXPORT void IterateOverDirectoryFiles(const char* a_sourceDirectory, TypeDirIterFunc a_callback, void* a_ud);
+DIRITER_EXPORT void IterateOverDirectoryFilesNoRecurse(const char* a_sourceDirectory, TypeDirIterFunc a_callback, void* a_ud);
 
 CINTERNAL_END_C
 

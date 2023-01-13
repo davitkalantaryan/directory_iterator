@@ -24,17 +24,12 @@ CINTERNAL_BEGIN_C
 static void SysDataToClbkData(DirIterFileData* a_pClbk, const struct dirent* a_pSysData)
 {
 	a_pClbk->isDir = (a_pSysData->d_type & DT_DIR)? CINTERNAL_STATIC_CAST(uint64_t,1): CINTERNAL_STATIC_CAST(uint64_t, 0);
-	a_pClbk->fileAttributes = CINTERNAL_STATIC_CAST(uint64_t, a_pSysData->d_type);
-	a_pClbk->creationTimeIn100Ms = 0;
-	a_pClbk->lastAccessTimeIn100Ms = 0;
-	a_pClbk->lastWriteTimeIn100Ms = 0;
-	a_pClbk->fileSize = 0;
 	a_pClbk->pFileName = a_pSysData->d_name;
-	a_pClbk->pAlternateFileName = a_pSysData->d_name;
+	a_pClbk->pSystemData = CINTERNAL_STATIC_CAST(const void*, a_pSysData);
 }
 
 
-DIRITER_EXPORT void IterateOverDirectoryFiles(const char* a_sourceDirectory, TypeDirIterFunc a_callback, void* a_ud)
+DIRITER_EXPORT void IterateOverDirectoryFilesNoRecurse(const char* a_sourceDirectory, TypeDirIterFunc a_callback, void* a_ud)
 {
 	DIR* pDir = opendir(a_sourceDirectory);
 	

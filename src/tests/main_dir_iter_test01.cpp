@@ -31,7 +31,7 @@ int main(int a_argc, char* a_argv[])
 		return 1;
 	}
 
-	IterateOverDirectoryFiles(a_argv[1], &DirIterFuncStatic, &aDt);
+	IterateOverDirectoryFilesNoRecurse(a_argv[1], &DirIterFuncStatic, &aDt);
 
 	return 0;
 }
@@ -51,7 +51,7 @@ static int DirIterFuncStatic(const char* a_sourceDirectory,void* a_pUd, const Di
 		char  vcStrFilePath[4096];
 		++(pDt->nDeepness);
 		snprintf_t(vcStrFilePath, 4095, "%s/%s", a_sourceDirectory, a_pData->pFileName);
-		IterateOverDirectoryFiles(vcStrFilePath, &DirIterFuncStatic, pDt);
+		IterateOverDirectoryFilesNoRecurse(vcStrFilePath, &DirIterFuncStatic, pDt);
 		--(pDt->nDeepness);
 	}
 
