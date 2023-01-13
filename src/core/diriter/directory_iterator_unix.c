@@ -34,19 +34,14 @@ DIRITER_EXPORT void IterateOverDirectoryFilesNoRecurse(const char* a_sourceDirec
 	DIR* pDir = opendir(a_sourceDirectory);
 	
 	if(pDir){
-		int nReadDirResult, nReturnFromCallback;
+        int nReturnFromCallback;
 		struct dirent* pResult;
-		struct dirent inpBuffer;
 		DirIterFileData		aClbkData;
-		nReadDirResult = readdir_r(pDir,&inpBuffer,&pResult);
-		assert(nReadDirResult==0);
-		CINTERNAL_STATIC_CAST(void,nReadDirResult);
+        pResult = readdir(pDir);  // readdir_r is deprecated. See: https://man7.org/linux/man-pages/man3/readdir.3.html
 		while(pResult){
 			if (pResult->d_name[0] == '.') {
 				if ((pResult->d_name[1] == 0) || ((pResult->d_name[1] == '.') && (pResult->d_name[2] == 0))) {
-					nReadDirResult = readdir_r(pDir,&inpBuffer,&pResult);
-					assert(nReadDirResult==0);
-					CINTERNAL_STATIC_CAST(void,nReadDirResult);
+                    pResult = readdir(pDir);
 					continue;
 				}
 			}
@@ -56,9 +51,7 @@ DIRITER_EXPORT void IterateOverDirectoryFilesNoRecurse(const char* a_sourceDirec
 			nReturnFromCallback = (*a_callback)(a_sourceDirectory,a_ud, &aClbkData);
 			if (nReturnFromCallback) { break; }
 			
-			nReadDirResult = readdir_r(pDir,&inpBuffer,&pResult);
-			assert(nReadDirResult==0);
-			CINTERNAL_STATIC_CAST(void,nReadDirResult);
+            pResult = readdir(pDir);
 		}
 		
 		closedir(pDir);

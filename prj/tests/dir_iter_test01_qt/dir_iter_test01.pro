@@ -8,7 +8,7 @@
 message (!!! $$_PRO_FILE_)
 
 include ("$${PWD}/../../../prj/common/common_qt/sys_common.pri")
-# include ("$${PWD}/../../../prj/common/common_qt/flags_common.pri")
+include ("$${PWD}/../../../prj/common/common_qt/flags_common.pri")
 
 DESTDIR     = $${artifactRoot}/$${SYSTEM_PATH}/$$CONFIGURATION/test
 
