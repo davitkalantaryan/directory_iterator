@@ -5,28 +5,20 @@
 // Created by:		Davit Kalantaryan (davit.kalantaryan@desy.de)
 //
 
-
 #include <directory_iterator/directory_iterator.h>
 #include <stdio.h>
-
-
-struct SDirIterData {
-	int nDeepness;
-};
+#include <string.h>
 
 static int DirIterFuncStatic(const char* a_sourceDirectory,void*, const DirIterFileData*) CINTERNAL_NOEXCEPT;
 
 int main(int a_argc, char* a_argv[])
 {
-	struct SDirIterData aDt;
-	aDt.nDeepness = 0;
-
 	if (a_argc < 2) {
 		fprintf(stderr, "Directory to iterate is not provided\n");
 		return 1;
 	}
 
-	IterateOverDirectoryFilesNoRecurse(a_argv[1], &DirIterFuncStatic, &aDt);
+	IterateOverDirectoryFilesRecurse(a_argv[1], &DirIterFuncStatic, CINTERNAL_NULL);
 
 	return 0;
 }
@@ -34,21 +26,12 @@ int main(int a_argc, char* a_argv[])
 
 static int DirIterFuncStatic(const char* a_sourceDirectory,void* a_pUd, const DirIterFileData* a_pData) CINTERNAL_NOEXCEPT
 {
-	struct SDirIterData* pDt = (struct SDirIterData*)a_pUd;
-	int i = 0;
-	for (; i < pDt->nDeepness; ++i) {
+	uint32_t i = 0;
+	CINTERNAL_STATIC_CAST(void,a_pData);
+	for (; i < a_pData->deepness; ++i) {
 		printf(" ");
 	}
-
 	printf("%s\n", a_pData->pFileName);
-
-	if (a_pData->isDir) {
-		char  vcStrFilePath[4096];
-		++(pDt->nDeepness);
-		snprintf_di(vcStrFilePath, 4095, "%s/%s", a_sourceDirectory, a_pData->pFileName);
-		IterateOverDirectoryFilesNoRecurse(vcStrFilePath, &DirIterFuncStatic, pDt);
-		--(pDt->nDeepness);
-	}
-
+	if (strcmp(a_pData->pFileName, "finish") == 0) { return DIRITER_EXIT_ALL; }
 	return 0;
 }

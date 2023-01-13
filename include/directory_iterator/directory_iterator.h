@@ -17,8 +17,9 @@ CINTERNAL_BEGIN_C
 
 // see: https://learn.microsoft.com/en-us/windows/win32/api/minwinbase/ns-minwinbase-win32_find_dataa
 typedef struct SDirIterFileData {
-	uint64_t	isDir : 1;
-	uint64_t	reserved01 : 63;
+	uint32_t	deepness;  // in case of non recursive call this field is not used
+	uint32_t	isDir : 1;
+	uint32_t	reserved01 : 31;
 	const char* pFileName;
 	const void* pSystemData;
 }DirIterFileData;
