@@ -9,11 +9,7 @@
 #include <directory_iterator/directory_iterator.h>
 #include <stdio.h>
 
-#ifdef _WIN32
-#define snprintf_t(_buf,_cnt,...)		_snprintf_s(_buf,_cnt,_cnt,__VA_ARGS__)
-#else
-#define snprintf_t(_buf,_cnt,...)		snprintf(_buf,_cnt,__VA_ARGS__)
-#endif
+
 
 struct SDirIterData {
 	int nDeepness;
@@ -23,7 +19,7 @@ static int DirIterFuncStatic(const char* a_sourceDirectory,void*, const DirIterF
 
 int main(int a_argc, char* a_argv[])
 {
-	SDirIterData aDt;
+	struct SDirIterData aDt;
 	aDt.nDeepness = 0;
 
 	if (a_argc < 2) {
@@ -39,8 +35,8 @@ int main(int a_argc, char* a_argv[])
 
 static int DirIterFuncStatic(const char* a_sourceDirectory,void* a_pUd, const DirIterFileData* a_pData) CINTERNAL_NOEXCEPT
 {
-	SDirIterData* pDt = (SDirIterData*)a_pUd;
-	int i(0);
+	struct SDirIterData* pDt = (struct SDirIterData*)a_pUd;
+	int i = 0;
 	for (; i < pDt->nDeepness; ++i) {
 		printf(" ");
 	}
@@ -50,7 +46,7 @@ static int DirIterFuncStatic(const char* a_sourceDirectory,void* a_pUd, const Di
 	if (a_pData->isDir) {
 		char  vcStrFilePath[4096];
 		++(pDt->nDeepness);
-		snprintf_t(vcStrFilePath, 4095, "%s/%s", a_sourceDirectory, a_pData->pFileName);
+		snprintf_di(vcStrFilePath, 4095, "%s/%s", a_sourceDirectory, a_pData->pFileName);
 		IterateOverDirectoryFilesNoRecurse(vcStrFilePath, &DirIterFuncStatic, pDt);
 		--(pDt->nDeepness);
 	}
