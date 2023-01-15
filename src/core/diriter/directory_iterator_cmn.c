@@ -7,6 +7,7 @@
 
 
 #include <directory_iterator/directory_iterator.h>
+#include <cinternal/disable_compiler_warnings.h>
 #include <stdio.h>
 #include <stdint.h>
 

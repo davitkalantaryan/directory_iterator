@@ -27,7 +27,8 @@ int main(int a_argc, char* a_argv[])
 static int DirIterFuncStatic(const char* a_sourceDirectory,void* a_pUd, const DirIterFileData* a_pData) CPPUTILS_NOEXCEPT
 {
 	uint32_t i = 0;
-	CPPUTILS_STATIC_CAST(void,a_pData);
+    CPPUTILS_STATIC_CAST(void,a_sourceDirectory);
+    CPPUTILS_STATIC_CAST(void,a_pUd);
 	for (; i < a_pData->deepness; ++i) {
 		printf(" ");
 	}
