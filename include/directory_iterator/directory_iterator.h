@@ -11,7 +11,7 @@
 #include <directory_iterator/export_symbols.h>
 #include <stdint.h>
 
-CINTERNAL_BEGIN_C
+CPPUTILS_BEGIN_C
 
 #define DIRITER_EXIT_ALL	(387)
 
@@ -36,7 +36,7 @@ DIRITER_EXPORT void IterateOverDirectoryFilesRecurse(const char* a_sourceDirecto
 #define snprintf_di(_buf,_cnt,...)		snprintf(_buf,_cnt,__VA_ARGS__)
 #endif
 
-CINTERNAL_END_C
+CPPUTILS_END_C
 
 
 #endif  // #ifndef DIRECTORY_ITERATOR_INCLUDE_DIRECTORY_ITERATOR_DIRECTORY_ITERATOR_H

@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <string.h>
 
-static int DirIterFuncStatic(const char* a_sourceDirectory,void*, const DirIterFileData*) CINTERNAL_NOEXCEPT;
+static int DirIterFuncStatic(const char* a_sourceDirectory,void*, const DirIterFileData*) CPPUTILS_NOEXCEPT;
 
 int main(int a_argc, char* a_argv[])
 {
@@ -18,16 +18,16 @@ int main(int a_argc, char* a_argv[])
 		return 1;
 	}
 
-	IterateOverDirectoryFilesRecurse(a_argv[1], &DirIterFuncStatic, CINTERNAL_NULL);
+	IterateOverDirectoryFilesRecurse(a_argv[1], &DirIterFuncStatic, CPPUTILS_NULL);
 
 	return 0;
 }
 
 
-static int DirIterFuncStatic(const char* a_sourceDirectory,void* a_pUd, const DirIterFileData* a_pData) CINTERNAL_NOEXCEPT
+static int DirIterFuncStatic(const char* a_sourceDirectory,void* a_pUd, const DirIterFileData* a_pData) CPPUTILS_NOEXCEPT
 {
 	uint32_t i = 0;
-	CINTERNAL_STATIC_CAST(void,a_pData);
+	CPPUTILS_STATIC_CAST(void,a_pData);
 	for (; i < a_pData->deepness; ++i) {
 		printf(" ");
 	}

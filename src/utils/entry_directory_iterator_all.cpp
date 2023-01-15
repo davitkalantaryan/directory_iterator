@@ -2,10 +2,10 @@
 
 #include <cinternal/internal_header.h>
 
-CINTERNAL_BEGIN_C
+CPPUTILS_BEGIN_C
 
-CINTERNAL_DLL_PUBLIC void DummyFunctionForDirectoryIteratorAll(void)
+CPPUTILS_DLL_PUBLIC void DummyFunctionForDirectoryIteratorAll(void)
 {
 }
 
-CINTERNAL_END_C
+CPPUTILS_END_C

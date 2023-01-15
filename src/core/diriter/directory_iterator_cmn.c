@@ -13,10 +13,10 @@
 #define DIRITER_MAX_PATH_MIN_1	(4095)
 #define DIRITER_MAX_PATH		(4096)
 
-CINTERNAL_BEGIN_C
+CPPUTILS_BEGIN_C
 
 
-typedef struct CINTERNAL_DLL_PRIVATE _SDirIterRecurseData {
+typedef struct CPPUTILS_DLL_PRIVATE _SDirIterRecurseData {
 	uint32_t		deepness; 
 	uint32_t		shouldStop : 1;
 	uint32_t		reserved01 : 31;
@@ -24,7 +24,7 @@ typedef struct CINTERNAL_DLL_PRIVATE _SDirIterRecurseData {
 	TypeDirIterFunc	userClbk;
 }SDirIterRecurseData;
 
-static int DirIterFunctionToRecurseStatic(const char* a_sourceDirectory, void* a_pUd, const DirIterFileData* a_pData) CINTERNAL_NOEXCEPT;
+static int DirIterFunctionToRecurseStatic(const char* a_sourceDirectory, void* a_pUd, const DirIterFileData* a_pData) CPPUTILS_NOEXCEPT;
 
 
 DIRITER_EXPORT void IterateOverDirectoryFilesRecurse(const char* a_sourceDirectory, TypeDirIterFunc a_callback, void* a_ud)
@@ -38,7 +38,7 @@ DIRITER_EXPORT void IterateOverDirectoryFilesRecurse(const char* a_sourceDirecto
 }
 
 
-static int DirIterFunctionToRecurseStatic(const char* a_sourceDirectory, void* a_pUd, const DirIterFileData* a_pData) CINTERNAL_NOEXCEPT
+static int DirIterFunctionToRecurseStatic(const char* a_sourceDirectory, void* a_pUd, const DirIterFileData* a_pData) CPPUTILS_NOEXCEPT
 {
 	int nRetByUser;
 	SDirIterRecurseData* pDt = (SDirIterRecurseData*)a_pUd;
@@ -46,7 +46,7 @@ static int DirIterFunctionToRecurseStatic(const char* a_sourceDirectory, void* a
 		return DIRITER_EXIT_ALL;
 	}
 
-	CINTERNAL_CONST_CAST(DirIterFileData*, a_pData)->deepness = pDt->deepness;
+	CPPUTILS_CONST_CAST(DirIterFileData*, a_pData)->deepness = pDt->deepness;
 	nRetByUser = (*(pDt->userClbk))(a_sourceDirectory, pDt->pUd, a_pData);
 	if (nRetByUser == DIRITER_EXIT_ALL) {
 		pDt->shouldStop = 1;
@@ -68,4 +68,4 @@ static int DirIterFunctionToRecurseStatic(const char* a_sourceDirectory, void* a
 }
 
 
-CINTERNAL_END_C
+CPPUTILS_END_C
