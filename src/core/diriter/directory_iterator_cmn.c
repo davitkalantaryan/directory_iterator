@@ -55,6 +55,9 @@ static int DirIterFunctionToRecurseStatic(const char* a_sourceDirectory, void* a
 
 	if (a_pData->isDir) {
 		char  vcStrFilePath[DIRITER_MAX_PATH];
+		if (a_pData->pFileName[0] == '.') {
+			if ((a_pData->pFileName[1] == 0) || ((a_pData->pFileName[1] == '.') && (a_pData->pFileName[2] == 0))) { return 0; }
+		}
 		++(pDt->deepness);
 		snprintf_di(vcStrFilePath, DIRITER_MAX_PATH_MIN_1, "%s/%s", a_sourceDirectory, a_pData->pFileName);
 		IterateOverDirectoryFilesNoRecurse(vcStrFilePath, &DirIterFunctionToRecurseStatic, pDt);

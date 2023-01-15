@@ -44,6 +44,9 @@ static int DirIterFuncStatic(const char* a_sourceDirectory,void* a_pUd, const Di
 
 	if (a_pData->isDir) {
 		char  vcStrFilePath[4096];
+		if (a_pData->pFileName[0] == '.') {
+			if ((a_pData->pFileName[1] == 0) || ((a_pData->pFileName[1] == '.') && (a_pData->pFileName[2] == 0))) { return 0; }
+		}
 		++(pDt->nDeepness);
 		snprintf_di(vcStrFilePath, 4095, "%s/%s", a_sourceDirectory, a_pData->pFileName);
 		IterateOverDirectoryFilesNoRecurse(vcStrFilePath, &DirIterFuncStatic, pDt);

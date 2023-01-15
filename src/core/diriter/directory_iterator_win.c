@@ -46,10 +46,6 @@ DIRITER_EXPORT void IterateOverDirectoryFilesNoRecurse(const char* a_sourceDirec
 		DirIterFileData		aClbkData;
 		
 		do {
-			if (FileInformation.cFileName[0] == '.') {
-				if ((FileInformation.cFileName[1] == 0) || ((FileInformation.cFileName[1] == '.') && (FileInformation.cFileName[2] == 0))) { continue; }
-			}
-
 			WinDataToClbkData(&aClbkData, &FileInformation);
 
 			nReturnFromCallback = (*a_callback)(a_sourceDirectory,a_ud, &aClbkData);

@@ -38,14 +38,7 @@ DIRITER_EXPORT void IterateOverDirectoryFilesNoRecurse(const char* a_sourceDirec
 		struct dirent* pResult;
 		DirIterFileData		aClbkData;
         pResult = readdir(pDir);  // readdir_r is deprecated. See: https://man7.org/linux/man-pages/man3/readdir.3.html
-		while(pResult){
-			if (pResult->d_name[0] == '.') {
-				if ((pResult->d_name[1] == 0) || ((pResult->d_name[1] == '.') && (pResult->d_name[2] == 0))) {
-                    pResult = readdir(pDir);
-					continue;
-				}
-			}
-			
+		while(pResult){			
 			SysDataToClbkData(&aClbkData, pResult);
 			
 			nReturnFromCallback = (*a_callback)(a_sourceDirectory,a_ud, &aClbkData);
