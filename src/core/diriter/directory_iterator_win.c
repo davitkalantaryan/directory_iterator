@@ -20,13 +20,13 @@
 
 #define DIRITER_MAX_PATH		(2*MAX_PATH)
 
-CINTERNAL_BEGIN_C
+CPPUTILS_BEGIN_C
 
 static void WinDataToClbkData(DirIterFileData* a_pClbk, const WIN32_FIND_DATAA* a_pWinData)
 {
-	a_pClbk->isDir = (a_pWinData->dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) ? CINTERNAL_STATIC_CAST(uint64_t, 1) : CINTERNAL_STATIC_CAST(uint64_t, 0);
+	a_pClbk->isDir = (a_pWinData->dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) ? CPPUTILS_STATIC_CAST(uint64_t, 1) : CPPUTILS_STATIC_CAST(uint64_t, 0);
 	a_pClbk->pFileName = a_pWinData->cFileName;
-	a_pClbk->pSystemData = CINTERNAL_STATIC_CAST(const void*, a_pWinData);
+	a_pClbk->pSystemData = CPPUTILS_STATIC_CAST(const void*, a_pWinData);
 }
 
 
@@ -46,10 +46,6 @@ DIRITER_EXPORT void IterateOverDirectoryFilesNoRecurse(const char* a_sourceDirec
 		DirIterFileData		aClbkData;
 		
 		do {
-			if (FileInformation.cFileName[0] == '.') {
-				if ((FileInformation.cFileName[1] == 0) || ((FileInformation.cFileName[1] == '.') && (FileInformation.cFileName[2] == 0))) { continue; }
-			}
-
 			WinDataToClbkData(&aClbkData, &FileInformation);
 
 			nReturnFromCallback = (*a_callback)(a_sourceDirectory,a_ud, &aClbkData);
@@ -63,7 +59,7 @@ DIRITER_EXPORT void IterateOverDirectoryFilesNoRecurse(const char* a_sourceDirec
 }
 
 
-CINTERNAL_END_C
+CPPUTILS_END_C
 
 
 #endif  //  #ifdef _WIN32

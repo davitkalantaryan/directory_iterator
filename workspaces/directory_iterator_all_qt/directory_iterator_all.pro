@@ -13,6 +13,7 @@ greaterThan(QT_MAJOR_VERSION, 4):QT += widgets
 repositoryRoot = $${PWD}/../..
 
 SUBDIRS	+=	"$${repositoryRoot}/prj/tests/dir_iter_test01_qt/dir_iter_test01.pro"
+SUBDIRS	+=	"$${repositoryRoot}/prj/tests/dir_iter_test02_qt/dir_iter_test02.pro"
 
 
 OTHER_FILES += $$files($${repositoryRoot}/docs/*.md,true)

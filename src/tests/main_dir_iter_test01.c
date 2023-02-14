@@ -14,7 +14,7 @@ struct SDirIterData {
 	int nDeepness;
 };
 
-static int DirIterFuncStatic(const char* a_sourceDirectory,void*, const DirIterFileData*) CINTERNAL_NOEXCEPT;
+static int DirIterFuncStatic(const char* a_sourceDirectory,void*, const DirIterFileData*) CPPUTILS_NOEXCEPT;
 
 int main(int a_argc, char* a_argv[])
 {
@@ -32,7 +32,7 @@ int main(int a_argc, char* a_argv[])
 }
 
 
-static int DirIterFuncStatic(const char* a_sourceDirectory,void* a_pUd, const DirIterFileData* a_pData) CINTERNAL_NOEXCEPT
+static int DirIterFuncStatic(const char* a_sourceDirectory,void* a_pUd, const DirIterFileData* a_pData) CPPUTILS_NOEXCEPT
 {
 	struct SDirIterData* pDt = (struct SDirIterData*)a_pUd;
 	int i = 0;
@@ -44,6 +44,9 @@ static int DirIterFuncStatic(const char* a_sourceDirectory,void* a_pUd, const Di
 
 	if (a_pData->isDir) {
 		char  vcStrFilePath[4096];
+		if (a_pData->pFileName[0] == '.') {
+			if ((a_pData->pFileName[1] == 0) || ((a_pData->pFileName[1] == '.') && (a_pData->pFileName[2] == 0))) { return 0; }
+		}
 		++(pDt->nDeepness);
 		snprintf_di(vcStrFilePath, 4095, "%s/%s", a_sourceDirectory, a_pData->pFileName);
 		IterateOverDirectoryFilesNoRecurse(vcStrFilePath, &DirIterFuncStatic, pDt);

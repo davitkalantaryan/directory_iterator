@@ -23,8 +23,9 @@ CONFIG -= qt
 
 
 SOURCES +=	\
-        $${directoryIteratorRepositoryRoot}/src/tests/main_dir_iter_test01.c				\
-	$${directoryIteratorRepositoryRoot}/src/core/diriter/directory_iterator_unix.c
+        $${directoryIteratorRepositoryRoot}/src/tests/main_dir_iter_test02.c                \
+        $${directoryIteratorRepositoryRoot}/src/core/diriter/directory_iterator_unix.c      \
+        $${directoryIteratorRepositoryRoot}/src/core/diriter/directory_iterator_cmn.c
 
 
 HEADERS += $$files($${DIR_ITER_INCLUDE}/*.h,true)
