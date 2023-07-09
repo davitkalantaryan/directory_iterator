@@ -17,6 +17,7 @@
 #include <WinSock2.h>
 #include <WS2tcpip.h>
 #include <Windows.h>
+#include <cinternal/undisable_compiler_warnings.h>
 
 #define DIRITER_MAX_PATH		(2*MAX_PATH)
 
