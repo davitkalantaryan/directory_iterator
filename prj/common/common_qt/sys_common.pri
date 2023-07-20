@@ -1,23 +1,20 @@
 #
-# file:				sys_common.pri
-# path:				prj/common/common_qt/sys_common.pri    
+# repo:                 directory_iterator
+# file:			sys_common.pri
+# path:			prj/common/common_qt/sys_common.pri    
 # created on:		2023 Jan 10
 # Created by:		Davit Kalantaryan (davit.kalantaryan@desy.de)
 #
 
 message ("$${PWD}/sys_common.pri")
+directoryIteratorSysCommonIncluded = 1
 
-isEmpty( directoryIteratorRepositoryRoot ) {
-	directoryIteratorRepositoryRoot = $${PWD}/../../..
+isEmpty( directoryIteratorResolveCommonIncluded ) {
+        include("$${PWD}/resolve_common.pri")
+	directoryIteratorResolveCommonIncluded = 1
 }
 
-isEmpty( repositoryRoot ) {
-	repositoryRoot = $${directoryIteratorRepositoryRoot}
+isEmpty( cinternalSysCommonIncluded ) {
+        include ( "$${cinternalRepoRoot}/prj/common/common_qt/sys_common.pri" )
+        cinternalSysCommonIncluded = 1
 }
-
-isEmpty( cinternalRepoRoot ) {
-	cinternalRepoRoot=$${directoryIteratorRepositoryRoot}/contrib/cinternal
-}
-
-
-include ( "$${cinternalRepoRoot}/prj/common/common_qt/sys_common.pri" )
