@@ -65,7 +65,7 @@ for %%p in (%PlatformTarget%) do (
 	)
 )
 
-exit /b 0
+exit /b !ERRORLEVEL!
 
 :parse_argument
 	set isNextArgPlatform=true
