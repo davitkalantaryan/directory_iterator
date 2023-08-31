@@ -38,7 +38,9 @@
     <ClCompile Include="..\..\..\contrib\cinternal\src\core\cinternal_core_logger.c" />
     <ClCompile Include="..\..\..\contrib\cinternal\src\core\cinternal_core_unit_test_checks.c" />
     <ClCompile Include="..\..\..\contrib\cinternal\src\core\cinternal_core_unit_test_main.c" />
-    <ClCompile Include="..\..\..\src\core\simple_cpp_bcrypt_core_bcrypt.c" />
+    <ClCompile Include="..\..\..\src\core\diriter\directory_iterator_cmn.c" />
+    <ClCompile Include="..\..\..\src\core\diriter\directory_iterator_unix.c" />
+    <ClCompile Include="..\..\..\src\core\diriter\directory_iterator_win.c" />
     <ClCompile Include="..\..\..\src\tests\unit_test\0000_initial.cpp" />
   </ItemGroup>
   <ItemGroup>

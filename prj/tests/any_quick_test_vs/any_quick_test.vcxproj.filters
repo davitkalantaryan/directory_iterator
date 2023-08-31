@@ -27,7 +27,13 @@
     <ClCompile Include="..\..\..\src\tests\main_any_quick_test.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\core\simple_cpp_bcrypt_core_bcrypt.c">
+    <ClCompile Include="..\..\..\src\core\diriter\directory_iterator_cmn.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\core\diriter\directory_iterator_unix.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\core\diriter\directory_iterator_win.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

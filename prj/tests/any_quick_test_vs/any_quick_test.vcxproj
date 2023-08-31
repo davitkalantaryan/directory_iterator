@@ -276,7 +276,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\src\core\simple_cpp_bcrypt_core_bcrypt.c" />
+    <ClCompile Include="..\..\..\src\core\diriter\directory_iterator_cmn.c" />
+    <ClCompile Include="..\..\..\src\core\diriter\directory_iterator_unix.c" />
+    <ClCompile Include="..\..\..\src\core\diriter\directory_iterator_win.c" />
     <ClCompile Include="..\..\..\src\tests\main_any_quick_test.c" />
   </ItemGroup>
   <ItemGroup>

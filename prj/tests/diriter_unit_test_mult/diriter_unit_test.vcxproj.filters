@@ -31,6 +31,9 @@
     <Filter Include="Header Files\incude\simple_cpp_bcrypt">
       <UniqueIdentifier>{dfe4289d-2e77-4da4-942b-7dffa534bb5b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\core\diriter">
+      <UniqueIdentifier>{2d169639-0f11-4307-a85d-c78ecc1348b5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\contrib\cinternal\src\core\cinternal_core_logger.c">
@@ -42,11 +45,17 @@
     <ClCompile Include="..\..\..\contrib\cinternal\src\core\cinternal_core_unit_test_main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\core\simple_cpp_bcrypt_core_bcrypt.c">
-      <Filter>Source Files\core</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\src\tests\unit_test\0000_initial.cpp">
       <Filter>Source Files\tests\unit_test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\core\diriter\directory_iterator_cmn.c">
+      <Filter>Source Files\core\diriter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\core\diriter\directory_iterator_unix.c">
+      <Filter>Source Files\core\diriter</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\core\diriter\directory_iterator_win.c">
+      <Filter>Source Files\core\diriter</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
