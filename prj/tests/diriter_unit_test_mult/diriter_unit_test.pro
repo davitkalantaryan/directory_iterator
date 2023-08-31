@@ -25,8 +25,8 @@ win32{
 DEFINES += CINTERNAL_UNIT_TEST_USE_GTEST_LIKE_MACROSES
 
 
-SOURCES	+= $$files($${simpleCppBcryptRepositoryRoot}/src/core/*.c)  # I assume, that in core we will not have subdirs
-SOURCES += $$files($${simpleCppBcryptRepositoryRoot}/src/tests/unit_test/*.cpp)
+SOURCES	+= $$files($${directoryIteratorRepoRoot}/src/core/*.c)  # I assume, that in core we will not have subdirs
+SOURCES += $$files($${directoryIteratorRepoRoot}/src/tests/unit_test/*.cpp)
 
 SOURCES +=  \
     "$${cinternalRepoRoot}/src/core/cinternal_core_logger.c"				\
@@ -35,7 +35,7 @@ SOURCES +=  \
 
 
 
-HEADERS =  $$files($${simpleCppBcryptRepositoryRoot}/include/*.h,true)
-HEADERS += $$files($${simpleCppBcryptRepositoryRoot}/include/*.hpp,true)
+HEADERS =  $$files($${directoryIteratorRepoRoot}/include/*.h,true)
+HEADERS += $$files($${directoryIteratorRepoRoot}/include/*.hpp,true)
 
 OTHER_FILES += $$files($${PWD}/*.Makefile)

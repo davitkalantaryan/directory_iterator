@@ -1,5 +1,5 @@
 #
-# repo:		simple_cpp_bcrypt
+# repo:		directory_iterator
 # file:		flagsandsys_common_raw.windows.Makefile
 # created on:	2023 Aug 14
 # created by:	Davit Kalantaryan (davit.kalantaryan@desy.de)
@@ -10,17 +10,17 @@
 MakeFileDir			= $(MAKEDIR)\..
 !ENDIF
 
-!IFNDEF simpleCppBcryptRepositoryRoot
-simpleCppBcryptRepositoryRoot	= $(MakeFileDir)\..\..\..
+!IFNDEF directoryIteratorRepoRoot
+directoryIteratorRepoRoot	= $(MakeFileDir)\..\..\..
 !ENDIF
 
 !IFNDEF artifactRoot
-artifactRoot	= $(simpleCppBcryptRepositoryRoot)
+artifactRoot	= $(directoryIteratorRepoRoot)
 !ENDIF
 
 !IFNDEF cinternalRepoRoot
-cinternalRepoRoot	= $(simpleCppBcryptRepositoryRoot)\contrib\cinternal
+cinternalRepoRoot	= $(directoryIteratorRepoRoot)\contrib\cinternal
 !ENDIF
 
 !include <$(cinternalRepoRoot)\prj\common\common_mkfl\flagsandsys_common.windows.Makefile>
-CFLAGS				= $(CFLAGS) /I"$(simpleCppBcryptRepositoryRoot)\include"
+CFLAGS				= $(CFLAGS) /I"$(directoryIteratorRepoRoot)\include"

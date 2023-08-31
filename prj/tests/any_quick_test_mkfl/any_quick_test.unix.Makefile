@@ -8,10 +8,10 @@ firstTarget: all
 
 include $(mkfile_dir)/../../common/common_mkfl/flagsandsys_common_private.unix.Makefile
 
-CORE_SRCS_DIR=$(simpleCppBcryptRepositoryRoot)/src/core
+CORE_SRCS_DIR=$(directoryIteratorRepoRoot)/src/core
 CORE_SRCS	= $(shell find $(CORE_SRCS_DIR) -name "*.c")
 
-SOURCES += $(simpleCppBcryptRepositoryRoot)/src/tests/main_any_quick_test.c
+SOURCES += $(directoryIteratorRepoRoot)/src/tests/main_any_quick_test.c
 
 LIBS += -pthread
 CPPFLAGS += -std=c++11

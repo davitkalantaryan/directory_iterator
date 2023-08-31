@@ -10,18 +10,18 @@
 
 message("!!! $${PWD}/flagsandsys_common.pri")
 
-isEmpty(simpleCppBcryptFlagsAndSysCommonIncluded){
-    simpleCppBcryptFlagsAndSysCommonIncluded = 1
+isEmpty(dirIterFlagsAndSysCommonIncluded){
+    dirIterFlagsAndSysCommonIncluded = 1
 
-    simpleCppBcryptRepositoryRoot = $${PWD}/../../..
-        include("$${simpleCppBcryptRepositoryRoot}/contrib/cinternal/prj/common/common_qt/flagsandsys_common.pri")
+    directoryIteratorRepoRoot = $${PWD}/../../..
+        include("$${directoryIteratorRepoRoot}/contrib/cinternal/prj/common/common_qt/flagsandsys_common.pri")
 
     isEmpty(artifactRoot) {
         artifactRoot = $$(artifactRoot)
 		isEmpty(artifactRoot) {
-		        artifactRoot = $${simpleCppBcryptRepositoryRoot}
+		        artifactRoot = $${directoryIteratorRepoRoot}
 		}
     }
 
-    INCLUDEPATH += $${simpleCppBcryptRepositoryRoot}/include
+    INCLUDEPATH += $${directoryIteratorRepoRoot}/include
 }

@@ -40,8 +40,6 @@
     <ClCompile Include="..\..\..\contrib\cinternal\src\core\cinternal_core_unit_test_main.c" />
     <ClCompile Include="..\..\..\src\core\simple_cpp_bcrypt_core_bcrypt.c" />
     <ClCompile Include="..\..\..\src\tests\unit_test\0000_initial.cpp" />
-    <ClCompile Include="..\..\..\src\tests\unit_test\0001_check_correct_hashes.cpp" />
-    <ClCompile Include="..\..\..\src\tests\unit_test\0002_check_incorrect_hashes.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="simplecppbcrypt_unit_test.pro" />

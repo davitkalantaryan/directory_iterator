@@ -48,12 +48,6 @@
     <ClCompile Include="..\..\..\src\tests\unit_test\0000_initial.cpp">
       <Filter>Source Files\tests\unit_test</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\tests\unit_test\0001_check_correct_hashes.cpp">
-      <Filter>Source Files\tests\unit_test</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\src\tests\unit_test\0002_check_incorrect_hashes.cpp">
-      <Filter>Source Files\tests\unit_test</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="simplecppbcrypt_unit_test.pro">

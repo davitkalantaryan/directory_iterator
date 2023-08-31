@@ -24,13 +24,13 @@ win32{
 }
 
 
-SOURCES	+= $$files($${simpleCppBcryptRepositoryRoot}/src/core/*.c)
+SOURCES	+= $$files($${directoryIteratorRepoRoot}/src/core/*.c)
 
 
 SOURCES	+=		\
         "$${PWD}/../../../src/tests/main_any_quick_test.c"
 
-HEADERS += $$files($${simpleCppBcryptRepositoryRoot}/include/*.h,true)
-HEADERS += $$files($${simpleCppBcryptRepositoryRoot}/include/*.hpp,true)
+HEADERS += $$files($${directoryIteratorRepoRoot}/include/*.h,true)
+HEADERS += $$files($${directoryIteratorRepoRoot}/include/*.hpp,true)
 
 OTHER_FILES += $$files($${PWD}/../any_quick_test_mkfl/*.Makefile,false)

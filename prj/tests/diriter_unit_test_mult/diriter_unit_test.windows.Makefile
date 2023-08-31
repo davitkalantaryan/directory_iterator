@@ -1,14 +1,14 @@
 #
-# repo:				simple_cpp_bcrypt
-# file:				simplecppbcrypt_unit_test.windows.Makefile
+# repo:				directory_iterator
+# file:				diriter_unit_test.windows.Makefile
 # created on:	    2020 Dec 02
 # created by:		Davit Kalantaryan (davit.kalantaryan@desy.de)
 #
 
 
-MakeFileName            = simplecppbcrypt_unit_test.windows.Makefile
+MakeFileName            = diriter_unit_test.windows.Makefile
 MakeFileDir				= $(MAKEDIR)
-TargetName				= simplecppbcrypt_unit_test_mkfl
+TargetName				= diriter_unit_test_mkfl
 TargetExtension			= exe
 TargetCategory          = test
 SrcBaseDir				= $(MakeFileDir)\..\..\..\src
