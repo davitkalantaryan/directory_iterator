@@ -22,6 +22,6 @@ set "PlatformToolsetVar=v%PlatformToolsetVarMid%%PlatformToolsetVarEnd%"
 echo PlatformToolsetVar=%PlatformToolsetVar%
 
 
-devenv workspaces\cinternal_all_vs\cinternal_all.sln
+devenv workspaces\directory_iterator_all_vs\directory_iterator_all.sln
 
 endlocal

@@ -42,13 +42,13 @@
     <ClCompile Include="..\..\..\src\tests\unit_test\0000_initial.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="simplecppbcrypt_unit_test.pro" />
-    <None Include="simplecppbcrypt_unit_test.unix.Makefile" />
-    <None Include="simplecppbcrypt_unit_test.windows.Makefile" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="..\..\..\include\simple_cpp_bcrypt\bcrypt.h" />
     <ClInclude Include="..\..\..\include\simple_cpp_bcrypt\export_symbols.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="diriter_unit_test.pro" />
+    <None Include="diriter_unit_test.unix.Makefile" />
+    <None Include="diriter_unit_test.windows.Makefile" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <GoogleTestConfiguration Condition="'$(Configuration)'=='Debug'">d</GoogleTestConfiguration>

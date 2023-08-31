@@ -52,4 +52,4 @@ fi
 
 cd ${repositoryRoot}/sys/${lsbCode}/Debug/test
 
-./simplecppbcrypt_unit_test
+./diriter_unit_test

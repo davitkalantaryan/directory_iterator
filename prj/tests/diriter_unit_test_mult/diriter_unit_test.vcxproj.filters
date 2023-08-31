@@ -50,22 +50,22 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="simplecppbcrypt_unit_test.pro">
-      <Filter>files</Filter>
-    </None>
-    <None Include="simplecppbcrypt_unit_test.unix.Makefile">
-      <Filter>files</Filter>
-    </None>
-    <None Include="simplecppbcrypt_unit_test.windows.Makefile">
-      <Filter>files</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="..\..\..\include\simple_cpp_bcrypt\bcrypt.h">
       <Filter>Header Files\incude\simple_cpp_bcrypt</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\simple_cpp_bcrypt\export_symbols.h">
       <Filter>Header Files\incude\simple_cpp_bcrypt</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="diriter_unit_test.pro">
+      <Filter>files</Filter>
+    </None>
+    <None Include="diriter_unit_test.unix.Makefile">
+      <Filter>files</Filter>
+    </None>
+    <None Include="diriter_unit_test.windows.Makefile">
+      <Filter>files</Filter>
+    </None>
   </ItemGroup>
 </Project>
