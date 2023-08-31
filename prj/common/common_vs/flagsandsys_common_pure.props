@@ -22,7 +22,7 @@ $(LocalDebuggerEnvironment)</LocalDebuggerEnvironment>
   </PropertyGroup>
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros">
-    <simpleCppBcryptRepositoryRoot>$(MSBuildThisFileDirectory)..\..\..</simpleCppBcryptRepositoryRoot>
+    <directoryIteratorRepoRoot>$(MSBuildThisFileDirectory)..\..\..</directoryIteratorRepoRoot>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <PreBuildEvent>
@@ -41,8 +41,8 @@ $(LocalDebuggerEnvironment)</LocalDebuggerEnvironment>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <BuildMacro Include="simpleCppBcryptRepositoryRoot">
-      <Value>$(simpleCppBcryptRepositoryRoot)</Value>
+    <BuildMacro Include="directoryIteratorRepoRoot">
+      <Value>$(directoryIteratorRepoRoot)</Value>
       <EnvironmentVariable>true</EnvironmentVariable>
     </BuildMacro>
   </ItemGroup>

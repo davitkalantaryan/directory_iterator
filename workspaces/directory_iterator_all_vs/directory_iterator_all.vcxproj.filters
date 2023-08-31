@@ -37,6 +37,21 @@
     <Filter Include="repo_files\prj\common\common_mkfl\raw">
       <UniqueIdentifier>{c6ff56d2-f658-4966-b50c-1e322f17789e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="repo_files\docs">
+      <UniqueIdentifier>{3a85996b-0ee9-4dc7-9167-21c6a1e67b31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="repo_files\.github">
+      <UniqueIdentifier>{fef55c83-41b7-4859-b9e9-791e13c097b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="repo_files\.github\workflows">
+      <UniqueIdentifier>{4f8d5bf2-c3c9-4443-8984-6e8b529dd42e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="repo_files\scripts">
+      <UniqueIdentifier>{4f23c993-93d2-4ed0-92e2-db218cded3fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="files">
+      <UniqueIdentifier>{bf994589-91f5-4302-99be-cdfc8735c592}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\utils\entry_directory_iterator_all.cpp">
@@ -88,6 +103,45 @@
     </None>
     <None Include="..\..\prj\common\common_mkfl\raw\flagsandsys_common_raw.windows.Makefile">
       <Filter>repo_files\prj\common\common_mkfl\raw</Filter>
+    </None>
+    <None Include="..\..\docs\README.md">
+      <Filter>repo_files\docs</Filter>
+    </None>
+    <None Include="..\..\.github\workflows\check_merge_to_master_and_develop.yml">
+      <Filter>repo_files\.github\workflows</Filter>
+    </None>
+    <None Include="..\..\scripts\unix_build_all.sh">
+      <Filter>repo_files\scripts</Filter>
+    </None>
+    <None Include="..\..\scripts\unix_prepare_host.sh">
+      <Filter>repo_files\scripts</Filter>
+    </None>
+    <None Include="..\..\scripts\unix_prepare_repository.sh">
+      <Filter>repo_files\scripts</Filter>
+    </None>
+    <None Include="..\..\scripts\unix_run_tests.sh">
+      <Filter>repo_files\scripts</Filter>
+    </None>
+    <None Include="..\..\scripts\windows_build_all.bat">
+      <Filter>repo_files\scripts</Filter>
+    </None>
+    <None Include="..\..\scripts\windows_prepare_host.bat">
+      <Filter>repo_files\scripts</Filter>
+    </None>
+    <None Include="..\..\scripts\windows_prepare_repository.bat">
+      <Filter>repo_files\scripts</Filter>
+    </None>
+    <None Include="..\..\scripts\windows_run_tests.bat">
+      <Filter>repo_files\scripts</Filter>
+    </None>
+    <None Include="..\..\scripts\windows_set_vs_toolset_and_run.bat">
+      <Filter>repo_files\scripts</Filter>
+    </None>
+    <None Include="..\directory_iterator_all_mkfl\directory_iterator_all.unix.Makefile">
+      <Filter>files</Filter>
+    </None>
+    <None Include="..\directory_iterator_all_qt\directory_iterator_all.pro">
+      <Filter>files</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
