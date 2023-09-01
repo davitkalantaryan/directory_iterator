@@ -6,7 +6,7 @@
 #
 
 message("!!! $${_PRO_FILE_}")
-include ( "$${PWD}/../../common/common_qt/flagsandsys_common.pri" )
+include ( "$${PWD}/../../common/common_qt/flagsandsys_common_private.pri" )
 DESTDIR     = "$${artifactRoot}/sys/$${CODENAME}/$$CONFIGURATION/test"
 
 QT -= gui

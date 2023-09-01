@@ -57,6 +57,12 @@
     <ClCompile Include="..\..\..\src\core\diriter\directory_iterator_win.c">
       <Filter>Source Files\core\diriter</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\src\tests\unit_test\0001_count_files_in_repo_root.cpp">
+      <Filter>Source Files\tests\unit_test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\tests\unit_test\0002_count_files_in_repo_src_dir.cpp">
+      <Filter>Source Files\tests\unit_test</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\include\simple_cpp_bcrypt\bcrypt.h">

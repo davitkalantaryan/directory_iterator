@@ -42,6 +42,8 @@
     <ClCompile Include="..\..\..\src\core\diriter\directory_iterator_unix.c" />
     <ClCompile Include="..\..\..\src\core\diriter\directory_iterator_win.c" />
     <ClCompile Include="..\..\..\src\tests\unit_test\0000_initial.cpp" />
+    <ClCompile Include="..\..\..\src\tests\unit_test\0001_count_files_in_repo_root.cpp" />
+    <ClCompile Include="..\..\..\src\tests\unit_test\0002_count_files_in_repo_src_dir.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\include\simple_cpp_bcrypt\bcrypt.h" />
