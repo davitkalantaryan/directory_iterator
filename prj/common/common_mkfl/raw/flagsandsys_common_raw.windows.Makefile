@@ -23,4 +23,8 @@ cinternalRepoRoot	= $(directoryIteratorRepoRoot)\contrib\cinternal
 !ENDIF
 
 !include <$(cinternalRepoRoot)\prj\common\common_mkfl\flagsandsys_common.windows.Makefile>
+
 CFLAGS				= $(CFLAGS) /I"$(directoryIteratorRepoRoot)\include"
+
+LFLAGS				= $(LFLAGS) /LIBPATH:"$(directoryIteratorRepoRoot)\sys\win_$(Platform)\$(Configuration)\lib"
+LFLAGS				= $(LFLAGS) /LIBPATH:"$(directoryIteratorRepoRoot)\sys\win_$(Platform)\$(Configuration)\tlib"

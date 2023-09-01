@@ -24,4 +24,9 @@ isEmpty(dirIterFlagsAndSysCommonIncluded){
     }
 
     INCLUDEPATH += $${directoryIteratorRepoRoot}/include
+
+        LIBS	+= -L$${directoryIteratorRepoRoot}/sys/$${CODENAME}/$$CONFIGURATION/lib
+	LIBS	+= -L$${directoryIteratorRepoRoot}/sys/$${CODENAME}/$$CONFIGURATION/tlib
+
+        OTHER_FILES += $$files($${PWD}/../common_mkfl/*.Makefile,true)
 }

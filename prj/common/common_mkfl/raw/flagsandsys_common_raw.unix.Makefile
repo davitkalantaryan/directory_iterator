@@ -19,3 +19,6 @@ endif
 include $(directoryIteratorRepoRoot)/contrib/cinternal/prj/common/common_mkfl/flagsandsys_common.unix.Makefile
 
 COMMON_FLAGS	+= -I$(directoryIteratorRepoRoot)/include
+
+LIBS	+= -L$(directoryIteratorRepoRoot)/sys/$(lsbCode)/$(Configuration)/lib
+LIBS	+= -L$(directoryIteratorRepoRoot)/sys/$(lsbCode)/$(Configuration)/tlib
