@@ -14,14 +14,16 @@ isEmpty(dirIterFlagsAndSysCommonIncluded){
     dirIterFlagsAndSysCommonIncluded = 1
 
     directoryIteratorRepoRoot = $${PWD}/../../..
-        include("$${directoryIteratorRepoRoot}/contrib/cinternal/prj/common/common_qt/flagsandsys_common.pri")
 
     isEmpty(artifactRoot) {
         artifactRoot = $$(artifactRoot)
-		isEmpty(artifactRoot) {
+	        isEmpty(artifactRoot) {
 		        artifactRoot = $${directoryIteratorRepoRoot}
 		}
     }
+
+    include("$${directoryIteratorRepoRoot}/contrib/cinternal/prj/common/common_qt/flagsandsys_common.pri")
+
 
     INCLUDEPATH += $${directoryIteratorRepoRoot}/include
 
