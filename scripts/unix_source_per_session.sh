@@ -38,7 +38,7 @@ makeMainJob (){
 		local fileOrigin=`readlink "${scriptFileName}"`  || :
 	done
 	cd ..
-	qtutilsRepoRoot=`pwd`
+	directoryIteratorRepoRoot=`pwd`
 	export directoryIteratorRepoRoot
 	echo directoryIteratorRepoRoot=$directoryIteratorRepoRoot
 
