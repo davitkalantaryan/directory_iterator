@@ -21,11 +21,11 @@ do
 	cd "${scriptDirectory}"
 	fileOrigin=`readlink "${scriptFileName}"`  || :
 done
-cd ..
-repositoryRoot=`pwd`
-echo repositoryRoot=$repositoryRoot
+scriptDirectory=`pwd`
 
-cd workspaces/directory_iterator_all_mkfl
+source ${scriptDirectory}/unix_source_per_session.sh ${scriptDirectory}/unix_source_per_session.sh ${scriptDirectory}/unix_source_per_session.sh
+
+cd ${directoryIteratorRepoRoot}/workspaces/directory_iterator_all_mkfl
 unset CPPUTILS_DEBUG
 make -f directory_iterator_all.unix.Makefile CPPUTILS_RELEASE=1
 unset CPPUTILS_RELEASE

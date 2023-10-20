@@ -22,5 +22,10 @@ do
 	fileOrigin=`readlink "${scriptFileName}"`  || :
 done
 cd ..
-repositoryRoot=`pwd`
-echo repositoryRoot=$repositoryRoot
+directoryIteratorRepoRoot=`pwd`
+echo directoryIteratorRepoRoot=$directoryIteratorRepoRoot
+
+git submodule sync --recursive
+git submodule update --init --recursive
+
+./contrib/cinternal/scripts/unix_prepare_host.sh
