@@ -46,7 +46,7 @@ makeMainJob (){
 
 	case "$LD_LIBRARY_PATH" in
 	        ${directoryIteratorRepoRoot}/sys/$lsbCode/Debug/lib:${directoryIteratorRepoRoot}/sys/$lsbCode/Release/lib:* )
-			echo "LD_LIBRARY_PATH for qtutils has been already set"
+		        echo "LD_LIBRARY_PATH for directory_iterator has been already set"
 			;;
 		* )
 		        export LD_LIBRARY_PATH=${directoryIteratorRepoRoot}/sys/$lsbCode/Debug/lib:${directoryIteratorRepoRoot}/sys/$lsbCode/Release/lib::$LD_LIBRARY_PATH
