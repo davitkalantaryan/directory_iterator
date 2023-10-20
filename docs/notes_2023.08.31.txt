@@ -1,0 +1,11 @@
+
+
+   $(MSBuildThisFileDirectory)..\..\..
+   garikgary555@gmail.com
+   
+   $(DirIterVirtProjectDir)..\..\..\sys\win_$(PlatformTarget)\$(Configuration)\test\
+   
+   $(PlatformToolsetVar)
+   
+   directoryIteratorRepoRoot
+

@@ -1,33 +1,35 @@
 #
-# file:				directory_iterator_all.pro
-# path:				workspaces/directory_iterator_all_qt/directory_iterator_all.pro  
+# file:			directory_iterator_all.pro
+# path:			workspaces/directory_iterator_all_qt/directory_iterator_all.pro
 # created on:		2023 Jan 10
 # Created by:		Davit Kalantaryan (davit.kalantaryan@desy.de)
 #
 
+message("!!! $${_PRO_FILE_}")
+
 TEMPLATE = subdirs
 #CONFIG += ordered
 
+include ( "$${PWD}/../../prj/common/common_qt/flagsandsys_common.pri" )
+
+SUBDIRS		+=	"$${directoryIteratorRepoRoot}/prj/tests/any_quick_test_qt/any_quick_test.pro"
+SUBDIRS		+=	"$${directoryIteratorRepoRoot}/prj/tests/diriter_unit_test_mult/diriter_unit_test.pro"
+
+cinternalFromHere{
+        SUBDIRS	+= "$${cinternalRepoRoot}/workspaces/cinternal_all_qt/cinternal_all.pro"
+}
+
+
 greaterThan(QT_MAJOR_VERSION, 4):QT += widgets
 
-repositoryRoot = $${PWD}/../..
-
-SUBDIRS	+=	"$${repositoryRoot}/prj/tests/dir_iter_test01_qt/dir_iter_test01.pro"
-SUBDIRS	+=	"$${repositoryRoot}/prj/tests/dir_iter_test02_qt/dir_iter_test02.pro"
-
-
-OTHER_FILES += $$files($${repositoryRoot}/docs/*.md,true)
-OTHER_FILES += $$files($${repositoryRoot}/docs/*.txt,true)
-OTHER_FILES += $$files($${repositoryRoot}/scripts/*.sh,true)
-OTHER_FILES += $$files($${repositoryRoot}/scripts/*.bat,true)
-OTHER_FILES += $$files($${repositoryRoot}/scripts/.raw/*.sh,true)
-OTHER_FILES += $$files($${repositoryRoot}/scripts/.raw/*.bat,true)
-OTHER_FILES += $$files($${repositoryRoot}/scripts/.cicd/*.sh,true)
-OTHER_FILES += $$files($${repositoryRoot}/scripts/.cicd/*.bat,true)
-OTHER_FILES += $$files($${repositoryRoot}/.github/*.yml,true)
+OTHER_FILES += $$files($${directoryIteratorRepoRoot}/docs/*.md,true)
+OTHER_FILES += $$files($${directoryIteratorRepoRoot}/docs/*.txt,true)
+OTHER_FILES += $$files($${directoryIteratorRepoRoot}/scripts/*.sh,true)
+OTHER_FILES += $$files($${directoryIteratorRepoRoot}/scripts/*.bat,true)
+OTHER_FILES += $$files($${directoryIteratorRepoRoot}/.github/*.yml,true)
 
 OTHER_FILES	+=	\
-        $${repositoryRoot}/.gitattributes			\
-	$${repositoryRoot}/.gitignore				\
-	$${repositoryRoot}/LICENSE				\
-	$${repositoryRoot}/README.md
+        $${directoryIteratorRepoRoot}/.gitattributes			\
+	$${directoryIteratorRepoRoot}/.gitignore			\
+	$${directoryIteratorRepoRoot}/LICENSE				\
+	$${directoryIteratorRepoRoot}/README.md
