@@ -6,8 +6,10 @@
 //
 
 #include <directory_iterator/directory_iterator.h>
+#include <cinternal/disable_compiler_warnings.h>
 #include <stdio.h>
 #include <string.h>
+#include <cinternal/undisable_compiler_warnings.h>
 
 static int DirIterFuncStatic(const char* a_sourceDirectory,void*, const DirIterFileData*) CPPUTILS_NOEXCEPT;
 

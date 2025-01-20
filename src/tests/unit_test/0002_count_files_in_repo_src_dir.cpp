@@ -7,7 +7,9 @@
 
 #include <directory_iterator/directory_iterator.h>
 #include <cinternal/unit_test.h>
+#include <cinternal/disable_compiler_warnings.h>
 #include <stdio.h>
+#include <cinternal/undisable_compiler_warnings.h>
 
 
 static int DirIterFuncStaticNoRecurse(const char* a_sourceDirectory, void* a_pUd, const DirIterFileData* a_pData) CPPUTILS_NOEXCEPT;

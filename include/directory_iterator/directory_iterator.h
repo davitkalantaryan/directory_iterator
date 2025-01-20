@@ -9,7 +9,9 @@
 #define DIRECTORY_ITERATOR_INCLUDE_DIRECTORY_ITERATOR_DIRECTORY_ITERATOR_H
 
 #include <directory_iterator/export_symbols.h>
+#include <cinternal/disable_compiler_warnings.h>
 #include <stdint.h>
+#include <cinternal/undisable_compiler_warnings.h>
 
 CPPUTILS_BEGIN_C
 
