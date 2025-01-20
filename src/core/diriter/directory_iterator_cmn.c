@@ -10,6 +10,7 @@
 #include <cinternal/disable_compiler_warnings.h>
 #include <stdio.h>
 #include <stdint.h>
+#include <cinternal/undisable_compiler_warnings.h>
 
 #define DIRITER_MAX_PATH_MIN_1	(4095)
 #define DIRITER_MAX_PATH		(4096)

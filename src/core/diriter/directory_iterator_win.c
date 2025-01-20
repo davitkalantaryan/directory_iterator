@@ -12,8 +12,8 @@
 #ifdef _WIN32
 
 #include <directory_iterator/directory_iterator.h>
-#include <stdio.h>
 #include <cinternal/disable_compiler_warnings.h>
+#include <stdio.h>
 #include <WinSock2.h>
 #include <WS2tcpip.h>
 #include <Windows.h>

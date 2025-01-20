@@ -11,9 +11,11 @@
 #ifndef _WIN32
 
 #include <directory_iterator/directory_iterator.h>
+#include <cinternal/disable_compiler_warnings.h>
 #include <sys/types.h>
 #include <dirent.h>
 #include <assert.h>
+#include <cinternal/undisable_compiler_warnings.h>
 
 
 CPPUTILS_BEGIN_C

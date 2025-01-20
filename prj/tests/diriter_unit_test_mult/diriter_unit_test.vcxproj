@@ -46,13 +46,13 @@
     <ClCompile Include="..\..\..\src\tests\unit_test\0002_count_files_in_repo_src_dir.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\include\simple_cpp_bcrypt\bcrypt.h" />
-    <ClInclude Include="..\..\..\include\simple_cpp_bcrypt\export_symbols.h" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="diriter_unit_test.pro" />
     <None Include="diriter_unit_test.unix.Makefile" />
     <None Include="diriter_unit_test.windows.Makefile" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\include\directory_iterator\directory_iterator.h" />
+    <ClInclude Include="..\..\..\include\directory_iterator\export_symbols.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <GoogleTestConfiguration Condition="'$(Configuration)'=='Debug'">d</GoogleTestConfiguration>

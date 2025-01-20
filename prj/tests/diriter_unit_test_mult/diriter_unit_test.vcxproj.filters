@@ -28,11 +28,11 @@
     <Filter Include="Source Files\tests\unit_test">
       <UniqueIdentifier>{68f0ce51-e8b8-4479-8958-358531f194f9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\incude\simple_cpp_bcrypt">
-      <UniqueIdentifier>{dfe4289d-2e77-4da4-942b-7dffa534bb5b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\core\diriter">
       <UniqueIdentifier>{2d169639-0f11-4307-a85d-c78ecc1348b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\incude\directory_iterator">
+      <UniqueIdentifier>{dfe4289d-2e77-4da4-942b-7dffa534bb5b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -65,14 +65,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\include\simple_cpp_bcrypt\bcrypt.h">
-      <Filter>Header Files\incude\simple_cpp_bcrypt</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\simple_cpp_bcrypt\export_symbols.h">
-      <Filter>Header Files\incude\simple_cpp_bcrypt</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="diriter_unit_test.pro">
       <Filter>files</Filter>
     </None>
@@ -82,5 +74,13 @@
     <None Include="diriter_unit_test.windows.Makefile">
       <Filter>files</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\include\directory_iterator\directory_iterator.h">
+      <Filter>Header Files\incude\directory_iterator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\directory_iterator\export_symbols.h">
+      <Filter>Header Files\incude\directory_iterator</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
