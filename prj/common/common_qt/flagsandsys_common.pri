@@ -17,18 +17,21 @@ isEmpty(dirIterFlagsAndSysCommonIncluded){
 
     isEmpty(artifactRoot) {
         artifactRoot = $$(artifactRoot)
-	        isEmpty(artifactRoot) {
-		        artifactRoot = $${directoryIteratorRepoRoot}
-		}
+        isEmpty(artifactRoot) {
+            artifactRoot = $${directoryIteratorRepoRoot}
+        }
     }
 
     include("$${directoryIteratorRepoRoot}/contrib/cinternal/prj/common/common_qt/flagsandsys_common.pri")
 
-
     INCLUDEPATH += $${directoryIteratorRepoRoot}/include
 
-        LIBS	+= -L$${directoryIteratorRepoRoot}/sys/$${CODENAME}/$$CONFIGURATION/lib
-	LIBS	+= -L$${directoryIteratorRepoRoot}/sys/$${CODENAME}/$$CONFIGURATION/tlib
+    exists($${directoryIteratorRepoRoot}/sys/$${CODENAME}/$$CONFIGURATION/lib) {
+        LIBS += -L$${directoryIteratorRepoRoot}/sys/$${CODENAME}/$$CONFIGURATION/lib
+    }
+    exists($${directoryIteratorRepoRoot}/sys/$${CODENAME}/$$CONFIGURATION/tlib) {
+        LIBS += -L$${directoryIteratorRepoRoot}/sys/$${CODENAME}/$$CONFIGURATION/tlib
+    }
 
-        OTHER_FILES += $$files($${PWD}/../common_mkfl/*.Makefile,true)
+    OTHER_FILES += $$files($${PWD}/../common_mkfl/*.Makefile,true)
 }
