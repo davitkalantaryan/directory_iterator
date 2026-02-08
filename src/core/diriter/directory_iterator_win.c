@@ -25,7 +25,8 @@ CPPUTILS_BEGIN_C
 
 static void WinDataToClbkData(DirIterFileData* a_pClbk, const WIN32_FIND_DATAA* a_pWinData)
 {
-	a_pClbk->isDir = (a_pWinData->dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) ? CPPUTILS_STATIC_CAST(uint64_t, 1) : CPPUTILS_STATIC_CAST(uint64_t, 0);
+        a_pClbk->fileType = (a_pWinData->dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) ?
+                              CPPUTILS_STATIC_CAST(uint32_t, ZlibWithToolsFileTypeDir) : CPPUTILS_STATIC_CAST(uint32_t, ZlibWithToolsFileTypeFile);
 	a_pClbk->pFileName = a_pWinData->cFileName;
 	a_pClbk->pSystemData = CPPUTILS_STATIC_CAST(const void*, a_pWinData);
 }
