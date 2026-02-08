@@ -55,7 +55,7 @@ static int DirIterFunctionToRecurseStatic(const char* a_sourceDirectory, void* a
 		return DIRITER_EXIT_ALL;
 	}
 
-	if (a_pData->isDir) {
+	if ((enum ZlibWithToolsFileType)(a_pData->fileType)== ZlibWithToolsFileTypeDir) {
 		char  vcStrFilePath[DIRITER_MAX_PATH];
 		if (a_pData->pFileName[0] == '.') {
 			if ((a_pData->pFileName[1] == 0) || ((a_pData->pFileName[1] == '.') && (a_pData->pFileName[2] == 0))) { return 0; }

@@ -44,7 +44,7 @@ static int DirIterFuncStatic(const char* a_sourceDirectory,void* a_pUd, const Di
 
 	printf("%s\n", a_pData->pFileName);
 
-	if (a_pData->isDir) {
+	if ((enum ZlibWithToolsFileType)(a_pData->fileType) == ZlibWithToolsFileTypeDir) {
 		char  vcStrFilePath[4096];
 		if (a_pData->pFileName[0] == '.') {
 			if ((a_pData->pFileName[1] == 0) || ((a_pData->pFileName[1] == '.') && (a_pData->pFileName[2] == 0))) { return 0; }
