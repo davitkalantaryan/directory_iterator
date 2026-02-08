@@ -17,11 +17,18 @@ CPPUTILS_BEGIN_C
 
 #define DIRITER_EXIT_ALL	(387)
 
+enum ZlibWithToolsFileType{
+    ZlibWithToolsFileTypeNone = -1,
+    ZlibWithToolsFileTypeFile,
+    ZlibWithToolsFileTypeDir,
+    ZlibWithToolsFileTypeSymLink
+};
+
 // see: https://learn.microsoft.com/en-us/windows/win32/api/minwinbase/ns-minwinbase-win32_find_dataa
 typedef struct SDirIterFileData {
 	uint32_t	deepness;  // in case of non recursive call this field is not used
-	uint32_t	isDir : 1;
-	uint32_t	reserved01 : 31;
+    uint32_t	fileType : 4;  // convertable to enum ZlibWithToolsFileType
+    uint32_t	reserved01 : 28;
 	const char* pFileName;
 	const void* pSystemData;
 }DirIterFileData;
