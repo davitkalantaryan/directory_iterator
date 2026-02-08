@@ -27,13 +27,13 @@ static void SysDataToClbkData(DirIterFileData* a_pClbk, const struct dirent* a_p
 {
     switch(a_pSysData->d_type){
     case DT_DIR:
-        a_pClbk->fileType = CPPUTILS_STATIC_CAST(uint32_t,ZlibWithToolsFileTypeFile);
+        a_pClbk->fileType = CPPUTILS_STATIC_CAST(uint32_t,ZlibWithToolsFileTypeDir);
         break;
     case DT_LNK:
         a_pClbk->fileType = CPPUTILS_STATIC_CAST(uint32_t,ZlibWithToolsFileTypeSymLink);
         break;
     default:
-        a_pClbk->fileType = CPPUTILS_STATIC_CAST(uint32_t,ZlibWithToolsFileTypeSymLink);
+        a_pClbk->fileType = CPPUTILS_STATIC_CAST(uint32_t,ZlibWithToolsFileTypeFile);
         break;
     }  //  switch(a_pSysData->d_type){
     a_pClbk->pFileName = a_pSysData->d_name;
