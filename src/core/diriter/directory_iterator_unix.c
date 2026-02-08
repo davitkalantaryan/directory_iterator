@@ -36,8 +36,8 @@ static void SysDataToClbkData(DirIterFileData* a_pClbk, const struct dirent* a_p
         a_pClbk->fileType = CPPUTILS_STATIC_CAST(uint32_t,ZlibWithToolsFileTypeSymLink);
         break;
     }  //  switch(a_pSysData->d_type){
-	a_pClbk->pFileName = a_pSysData->d_name;
-	a_pClbk->pSystemData = CPPUTILS_STATIC_CAST(const void*, a_pSysData);
+    a_pClbk->pFileName = a_pSysData->d_name;
+    a_pClbk->pSystemData = CPPUTILS_STATIC_CAST(const void*, a_pSysData);
 }
 
 

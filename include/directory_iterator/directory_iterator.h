@@ -18,8 +18,8 @@ CPPUTILS_BEGIN_C
 #define DIRITER_EXIT_ALL	(387)
 
 enum ZlibWithToolsFileType{
-    ZlibWithToolsFileTypeNone = -1,
-    ZlibWithToolsFileTypeFile,
+    ZlibWithToolsFileTypeNone = ((2<<4)-1),
+    ZlibWithToolsFileTypeFile = 0,
     ZlibWithToolsFileTypeDir,
     ZlibWithToolsFileTypeSymLink
 };
