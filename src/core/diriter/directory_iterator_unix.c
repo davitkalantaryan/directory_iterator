@@ -25,9 +25,19 @@ CPPUTILS_BEGIN_C
 
 static void SysDataToClbkData(DirIterFileData* a_pClbk, const struct dirent* a_pSysData)
 {
-	a_pClbk->isDir = (a_pSysData->d_type & DT_DIR)? CPPUTILS_STATIC_CAST(uint64_t,1): CPPUTILS_STATIC_CAST(uint64_t, 0);
-	a_pClbk->pFileName = a_pSysData->d_name;
-	a_pClbk->pSystemData = CPPUTILS_STATIC_CAST(const void*, a_pSysData);
+    switch(a_pSysData->d_type){
+    case DT_DIR:
+        a_pClbk->fileType = CPPUTILS_STATIC_CAST(uint32_t,ZlibWithToolsFileTypeDir);
+        break;
+    case DT_LNK:
+        a_pClbk->fileType = CPPUTILS_STATIC_CAST(uint32_t,ZlibWithToolsFileTypeSymLink);
+        break;
+    default:
+        a_pClbk->fileType = CPPUTILS_STATIC_CAST(uint32_t,ZlibWithToolsFileTypeFile);
+        break;
+    }  //  switch(a_pSysData->d_type){
+    a_pClbk->pFileName = a_pSysData->d_name;
+    a_pClbk->pSystemData = CPPUTILS_STATIC_CAST(const void*, a_pSysData);
 }
 
 

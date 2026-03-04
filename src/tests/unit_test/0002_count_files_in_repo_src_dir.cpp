@@ -36,7 +36,7 @@ static int DirIterFuncStaticNoRecurse(const char* a_sourceDirectory, void* a_pUd
 		if ((a_pData->pFileName[1] == 0) || ((a_pData->pFileName[1] == '.') && (a_pData->pFileName[2] == 0))) { return 0; }
 	}
 
-	if (a_pData->isDir) {
+	if ((enum ZlibWithToolsFileType)(a_pData->fileType) == ZlibWithToolsFileTypeDir) {
 		char  vcStrFilePath[4096];
 		snprintf_di(vcStrFilePath, 4095, "%s/%s", a_sourceDirectory, a_pData->pFileName);
 		IterateOverDirectoryFilesNoRecurse(vcStrFilePath, &DirIterFuncStaticNoRecurse, a_pUd);
@@ -58,7 +58,7 @@ static int DirIterFuncStaticRecurse(const char* a_sourceDirectory, void* a_pUd, 
 		if ((a_pData->pFileName[1] == 0) || ((a_pData->pFileName[1] == '.') && (a_pData->pFileName[2] == 0))) { return 0; }
 	}
 
-	if (!a_pData->isDir) {
+	if ((enum ZlibWithToolsFileType)(a_pData->fileType) != ZlibWithToolsFileTypeDir) {
 		++(*pnFilesCount);
 	}
 
